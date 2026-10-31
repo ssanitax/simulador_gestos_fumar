@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07101c" />
+    <title>Mechero y cigarro</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="vista"></canvas>
+
+    <section id="panel" aria-live="polite">
+      <p class="marca">Mano dominante</p>
+      <div class="manos" role="group" aria-label="Mano dominante">
+        <button type="button" data-mano="diestro">Diestro</button>
+        <button type="button" data-mano="zurdo">Zurdo</button>
+      </div>
+      <p id="lados">Mechero a la izquierda. Cigarro a la derecha.</p>
+      <h1 id="nombre-gesto">Mechero en su sitio</h1>
+      <p id="accion">Cigarro en su sitio</p>
+      <p id="sensores">Cámara apagada.</p>
+      <button id="activar-mini" type="button" hidden disabled>Cargando modelos…</button>
+    </section>
+
+    <div id="pie">
+      <video id="camara" playsinline muted></video>
+      <aside id="leyenda">
+        <p class="marca">Cómo se usa</p>
+        <p>La mano izquierda mueve lo de la izquierda. La derecha, lo de la derecha.</p>
+        <p>Mechero: puño para cogerlo, un dedo para la llama y la mano abierta para soltarlo.</p>
+        <p>Cigarro: victoria y junta esos dos dedos. Sigue tu mano. Acércalo a la boca para fumar.</p>
+        <p>La punta se enciende al tocar la llama. La ceniza se queda; sacúdela junto al cenicero para soltarla.</p>
+        <p>Junta todos los dedos y el cigarro mira hacia abajo. Apóyalo en la mesa o en el cenicero para apagarlo: deja un rastro de ceniza.</p>
+      </aside>
+    </div>
+
+    <div id="arranque">
+      <div class="tarjeta">
+        <p class="marca">Empieza por aquí</p>
+        <h2>Mechero y cigarro.</h2>
+        <p>
+          Marca tu mano. Puño para el mechero y un dedo para la llama.
+          Victoria cerrada para el cigarro. Junta todos los dedos para ponerlo hacia abajo y apagarlo en la mesa.
+          Si eres zurdo, el mechero queda a la derecha.
+        </p>
+        <div class="manos" role="group" aria-label="Mano dominante">
+          <button type="button" data-mano="diestro">Diestro</button>
+          <button type="button" data-mano="zurdo">Zurdo</button>
+        </div>
+        <p id="lados-intro" class="nota">Mechero a la izquierda. Cigarro a la derecha.</p>
+        <button id="activar" type="button" disabled>Cargando modelos…</button>
+        <button id="probar" type="button">Ver la escena</button>
+        <p id="error" class="error" hidden></p>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,267 @@
+:root {
+  color-scheme: dark;
+  --fondo: #07101c;
+  --panel: rgba(8, 14, 24, 0.78);
+  --linea: rgba(214, 228, 255, 0.14);
+  --texto: #edf3fb;
+  --suave: #9aabc2;
+  --acento: #f0d78c;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--fondo);
+  color: var(--texto);
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+#vista {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#pie {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+#camara {
+  flex: 0 0 240px;
+  width: 240px;
+  height: auto;
+  min-height: 148px;
+  object-fit: cover;
+  pointer-events: none;
+  background: #0b121c;
+  border: 1px solid var(--linea);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  transform: scaleX(-1);
+}
+
+#camara:not(.visible) {
+  display: none;
+}
+
+#panel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  width: auto;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+}
+
+.marca {
+  margin: 0;
+  color: var(--acento);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#nombre-gesto {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+#panel #lados,
+#panel #accion,
+#panel #sensores {
+  margin: 0;
+}
+
+#accion,
+#sensores,
+.nota,
+.pista,
+.error {
+  margin: 4px 0 0;
+  color: var(--suave);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.manos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: min(220px, 100%);
+  margin-top: 0;
+}
+
+.tarjeta .manos {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.manos button {
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  padding: 8px 10px;
+  color: var(--texto);
+  background: transparent;
+  cursor: pointer;
+}
+
+.manos button.activo {
+  color: #241c08;
+  background: var(--acento);
+  border-color: transparent;
+}
+
+#activar-mini,
+#activar,
+#probar {
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#activar-mini {
+  margin-top: 0;
+  padding: 8px 12px;
+  font-weight: 650;
+  color: #241c08;
+  background: var(--acento);
+}
+
+#activar-mini:disabled,
+#activar:disabled {
+  cursor: progress;
+  opacity: 0.65;
+}
+
+#leyenda {
+  flex: 0 1 auto;
+  width: fit-content;
+  max-width: min(240px, calc(100vw - 40px));
+  margin: 0 0 0 auto;
+  padding: 8px 10px 9px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  backdrop-filter: blur(16px);
+}
+
+#leyenda p {
+  margin: 2px 0 0;
+  color: var(--suave);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+#arranque {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(7, 16, 28, 0.12), rgba(7, 16, 28, 0.62));
+}
+
+#arranque[hidden] {
+  display: none;
+}
+
+.tarjeta {
+  width: min(460px, calc(100vw - 32px));
+  padding: 26px 26px 22px;
+  pointer-events: auto;
+  background: rgba(8, 14, 24, 0.9);
+  border: 1px solid var(--linea);
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+}
+
+.tarjeta h2 {
+  margin: 8px 0 0;
+  font-size: 32px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.tarjeta p {
+  line-height: 1.5;
+}
+
+#activar,
+#probar {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 16px;
+  font-weight: 650;
+}
+
+#activar {
+  color: #241c08;
+  background: var(--acento);
+}
+
+#probar {
+  color: var(--texto);
+  background: transparent;
+  border: 1px solid var(--linea);
+}
+
+.error {
+  color: #ffb4a8;
+}
+
+@media (max-width: 720px) {
+  #pie {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    gap: 8px;
+  }
+
+  #camara {
+    flex-basis: 128px;
+    width: 128px;
+    min-height: 96px;
+  }
+
+  #leyenda {
+    max-width: min(200px, 48vw);
+  }
+}
