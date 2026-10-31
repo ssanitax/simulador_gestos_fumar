@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
-const MODELO_MECHERO = new URL("../Blue+Bic+Lighter.fbx", import.meta.url).href;
+const MODELO_MECHERO = new URL("./assets/mechero.fbx", import.meta.url).href;
 const ALTO_MECHERO = 1.48;
 
 const SEPARACION = 0.95;

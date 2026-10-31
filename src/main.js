@@ -29,10 +29,12 @@ let reloj = 0;
 probar.addEventListener("click", cerrarIntro);
 activar.addEventListener("click", abrirCamara);
 activarMini.addEventListener("click", abrirCamara);
-for (const boton of document.querySelectorAll("[data-mano]")) {
-  boton.addEventListener("click", () => aplicarMano(boton.dataset.mano === "zurdo"));
-}
-aplicarMano(leerMano(), true);
+// Los botones de diestro y zurdo no se muestran. La mano queda fija en zurdo.
+// for (const boton of document.querySelectorAll("[data-mano]")) {
+//   boton.addEventListener("click", () => aplicarMano(boton.dataset.mano === "zurdo"));
+// }
+// aplicarMano(leerMano(), true);
+aplicarMano(true, true);
 
 prepararVision()
   .then(() => {
